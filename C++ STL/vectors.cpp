@@ -51,10 +51,12 @@ void explainVector(){
     }
     cout << '\n';
     vector<int> copy(4, 50); //{50,50,50,50}
-    v2.insert(v2.begin(), copy.begin(), copy.begin() + 2);
+    v2.insert(v2.begin(), copy.begin(), copy.begin() + 2); //range insertion
     for(auto it : v2){
         cout << it << ',';
     }
+    cout << '\n'; 
+    cout << v2.size() << endl;
     //v.size
     //v.pop_back pops the last element, destroys it and doesnt return anything, use back() to get last element's copy 
     //v.swap(v1) swaps the names of the vectors
