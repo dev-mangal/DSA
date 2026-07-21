@@ -3,6 +3,7 @@ using namespace std;
 
 //set aint better because of TC of insertion 
 //TC = O(sqrt(N)), SC = O(2*sqrt(N)) (constant doesnt matter but for practice, since maximum divisors stored for each iteration are 2, so max space alloted is 2 times the number of iterations)
+//only need to iterate thru sqrt(N) since after that the divisors are repeated
 class Solution{
 public:
     vector<int> getDivisors(int N){
