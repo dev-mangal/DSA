@@ -2,6 +2,8 @@
 #include <climits>
 using namespace std;
 
+//TC = O(logx) where x = input number, SC = O(1)
+
 int reverse(int x) {
         //last digit ke liye we get the factor of 10
         //baaki digits ke liye we get remainder when we divide by 10
