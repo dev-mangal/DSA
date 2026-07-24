@@ -32,6 +32,6 @@ public:
 int main(){
     Solution sol;
     int n = 4;
-    cout << sol.printFib(n) << endl;
+    cout << sol.getFib(n) << endl;
     return 0;
 }
