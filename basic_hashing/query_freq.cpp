@@ -66,5 +66,5 @@ void char_hash(){
 }
 
 int main(){
-   lc_char_hash(); 
+   lc_char_hash();
 }  
