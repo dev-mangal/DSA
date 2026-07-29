@@ -6,7 +6,7 @@ public:
     //low and high are the first and last index of the array
     void merge_sort(vector<int> &arr, int low, int high){
         //base case
-        if(low == high) return;
+        if(low >= high) return;
         int mid = (low + high)/2;
         merge_sort(arr, low, mid); //left subtree sorted
         merge_sort(arr, mid+1, high); //right subtree sorted
