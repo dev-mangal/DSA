@@ -10,6 +10,7 @@ public:
         //this loops swaps the elements till we have smth that makes i and j cross each other i.e j < i
         while(i < j){
             //this loop runs till we have the index of the first element greater than pivot
+            //just reverse the comparison conditions for descending order
             while(arr[i] <= pivot && i < high){
                 i++;
             }
