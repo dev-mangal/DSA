@@ -5,7 +5,7 @@ class Solution{
 public:
     //we simply used recursion for the outer loop and called all the indexes like that
     void rec_ins(int arr[], int i, int n) {
-    // Base Case: if index reaches the size, return
+    // Base Case: if index reaches the size, return, m instead of n-1 since the next call needs to return i.e when i = n, not the current one (same logic as using < n instead of n-1 in insertion sort)
     if (i == n) return;
 
     int j = i;
