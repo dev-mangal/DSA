@@ -20,6 +20,8 @@ public:
     //     advance(last, -2);
     //     cout << "second smallest: " << *start << " and second largest: " << *last << endl;
     // }
+
+    //O(N) and O(1)
     void answer(int arr[], int n){
         if(n < 2){
             cout << "-1" << endl;
