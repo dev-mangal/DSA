@@ -2,36 +2,33 @@
 using namespace std;
 
 //move all zeros in the array in-place to the end
-// O(N2) and O(1)
+//two pointer approach O(N) and O(1)
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int count = 0;
-        int sum = 0;
-        bool allzero = true;
-        for(auto it : nums){
-            if(it != 0) {
-                allzero = false;
+        int j = -1;
+        //find the first zero and initialize j to its index
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] == 0){
+                j = i;
                 break;
             }
         }
-        if(allzero) return;
-        for(int i = 0; i < nums.size(); i++){
-            if(nums[i] == 0) {
-                nums.erase(nums.begin() + i);
-                i--;
-                count++;
+        if(j == -1) return;
+        //for the remaining array to the right of zero, when we find a non zero element we swap the values
+        //then increment BOTH i and j by 1, j will still point to a zero, cuz if i moved by more than one that meant the element in between is also zero (like in {1,0,2,0,0,3}) so the logic still works
+        for(int i = j+1; i < nums.size(); i++){
+            if(nums[i] != 0){
+                swap(nums[j], nums[i]);
+                j++;
             }
-        }
-        for(int i = 0; i < count; i++){
-            nums.push_back(0);
         }
     }
 };
 
 int main(){
     Solution sol;
-    vector<int> nums = {-1,0,0,1,0};
+    vector<int> nums = {1,2,0,3,2,0,0,4,5,1};
     sol.moveZeroes(nums);
     for(auto it : nums){
         cout << it << endl;
