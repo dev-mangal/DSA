@@ -6,15 +6,15 @@ using namespace std;
 class Solution{
 public:
     void union_sorted(vector<int> &arr1, int m, vector<int> &arr2, int n){
-        set<int> s;
+        map<int,int> freq;
         for(int i = 0; i < m; i++){
-            s.insert(arr1[i]);
+            freq[arr1[i]]++;
         }
         for(int i = 0; i < n; i++){
-            s.insert(arr2[i]);
+            freq[arr2[i]]++;
         }
-        for(auto it : s){
-            cout << it << endl;
+        for(auto &it : freq){
+            cout << it.first << endl;
         }
     }
 };
