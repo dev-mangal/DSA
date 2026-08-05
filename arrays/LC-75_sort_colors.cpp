@@ -1,36 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//sort array of 0s, 1s, 2s in place
+//sort array of 0s, 1s, 2s in-place
+//optimal, tc O(n) and sc O(1) (in-place), using dnf (dutch national flag) algorithm
+//can also just count 0 1 and 2 individually and overwrite the array in-place
 class Solution{
 public:
-    int partition(vector<int>& nums, int low, int high){
-        int pivot = nums[low];
-        int i = low;
-        int j = high;
-        while(i < j){
-            while(nums[i] <= pivot && i < high){
-                i++;
+    //0 to low - 1 = 0; low to mid - 1 = 1; mid to high = unsorted; high + 1 to n-1 = 2
+    void sortColors(vector<int>& nums){
+        int low = 0;
+        int mid = 0;
+        int high = nums.size()-1;
+        while(mid <= high){
+            if(nums[mid] == 0){
+                swap(nums[low], nums[mid]);
+                mid++;
+                low++;
             }
-            while(nums[j] > pivot && j > low){
-                j--;
+            else if(nums[mid] == 1){
+                mid++;
             }
-            if(i < j) swap(nums[i], nums[j]);
-        }
-        swap(nums[low], nums[j]);
-        return j;
-    }
-    void quicksort(vector<int>& nums, int low, int high){
-        if(low < high){
-            int p_index = partition(nums, low, high);
-            quicksort(nums, low, p_index-1);
-            quicksort(nums, p_index+1, high);
-        }
-    }
-    void bubblesort(vector<int> &nums){
-        for(int i = 0; i < nums.size() - 1; i++){
-            for(int j = 0; j < nums.size() - i - 1; j++){
-                if(nums[j] > nums[j+1]) swap(nums[j+1], nums[j]);
+            else if(nums[mid] == 2){
+                swap(nums[mid], nums[high]);
+                high--;
             }
         }
     }
@@ -39,7 +31,7 @@ public:
 int main(){
     Solution sol;
     vector<int> nums = {2,0,2,1,1,0};
-    sol.bubblesort(nums);
+    sol.sortColors(nums);
     for(auto it : nums){
         cout << it << endl;
     }
