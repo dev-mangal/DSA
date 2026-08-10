@@ -26,14 +26,38 @@ public:
         }
         return length;
     }
+
+    //for arr containing just positive integers and zero - Sliding Window (two pointer)
+    //i is the start of the subarray and j is the end, we keep increasing j, and when sum > k, we increase i to shorten the subarray from the left side, and keep repeating till j = n
+    int sliding_window(int arr[], int n, int k){
+        int i = 0;
+        int j = 0;
+        int len = 0;
+        long long sum = arr[0];
+        while(j < n){
+            //the idea is to calc sum like a normal iteration is calculated, and just subtract arr[i] whenever i++
+            //first we trim the subarray before changing the sum
+            while(i <= j && sum > k){
+                sum -= arr[i];
+                i++;
+            }
+            if(sum == k) len = max(len, j-i+1);
+            j++;
+            if(j < n) sum += arr[j]; //we check the condition again cuz of edge case
+        }
+        return len;
+    }
 };
 
 int main(){
     Solution sol;
-    int arr[] = {2,0,0,3};
+    int arr[] = {1,2,-2,2};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 3;
-
+    int k = 2;
+    int arr2[] = {1,2,3,1,1,1,1};
+    int m = sizeof(arr2) / sizeof(arr2[0]);
+    int l = 3;
     cout << sol.longest_subarr(arr, n , k) << endl;
+    cout << sol.sliding_window(arr2, m, l) << endl;
     return 0;
 }
