@@ -1,0 +1,16 @@
+int i = 0;
+int j = 0;
+
+while (j < n) {
+
+    // add arr[j] to the window
+
+    while (/* window is invalid */) {
+        // remove arr[i] from the window
+        i++;
+    }
+
+    // process/update answer for current window
+
+    j++;
+}
