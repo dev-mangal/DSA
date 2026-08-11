@@ -7,7 +7,7 @@ public:
     void nextPermutation(vector<int> &nums){
         int pivot = -1;
         for(int i = nums.size() - 1; i >= 1; i--){
-            //condition to check ascending order, if found then that element is to be increased since everything to the right of it is in descending
+            //condition to check ascending order, if found then that element is to be increased (pivot) since everything to the right of it is in descending
             if(nums[i-1] < nums[i]){
                 pivot = i - 1;
                 break;
@@ -37,7 +37,7 @@ public:
 
 int main(){
     Solution sol;
-    vector<int> nums = {3,2,1};
+    vector<int> nums = {2,3,1,3,3};
     sol.nextPermutation(nums);
     for(auto it : nums){
         cout << it << endl;
