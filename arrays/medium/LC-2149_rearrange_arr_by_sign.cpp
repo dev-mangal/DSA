@@ -6,6 +6,7 @@ using namespace std;
 class Solution{
 public:
     //approach: two new vectors, one containing all positive, one all negative, and just traverse and add
+    //O(N), O(N)
     vector<int> rearrangeArray(vector<int> &nums){
         vector<int> pos;
         vector<int> neg;
@@ -17,6 +18,25 @@ public:
         for(int i = 0; i < nums.size()/2; i++){
             result.push_back(pos[i]);
             result.push_back(neg[i]);
+        }
+        return result;
+    }
+
+    //two pointer
+    vector<int> rearrangeArray1(vector<int> &nums){
+        //we initialize the indexes to where we want the elements to start from, then simply insert the elements found at the correct indices in result array
+        int pos = 0;
+        int neg = 1;
+        vector<int> result(nums.size());
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] >= 0){
+                result[pos] = nums[i];
+                pos += 2; //alternate
+            }
+            else{
+                result[neg] = nums[i];
+                neg += 2;
+            }
         }
         return result;
     }
