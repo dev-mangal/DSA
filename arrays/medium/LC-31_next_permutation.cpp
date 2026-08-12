@@ -17,20 +17,14 @@ public:
             reverse(nums.begin(), nums.end());
             return;
         }
-        //find the index of the number to increase to
-        int inc_index;
-        int inc_el = INT_MAX;
-        for(int i = pivot + 1; i < nums.size(); i++){
+        //no need for min logic, since all elements to right of pivot in descending, so from the right just find the one greater than pivot to get the rightmost greater than pivot
+        for(int i = nums.size() - 1; i > pivot; i--){
             if(nums[i] > nums[pivot]){
-                //equals is important in the condition since if there are duplicate smallest values larger than pivot, then we need to choose the rightmost one, so we need index of the rightmost one
-                if(nums[i] <= inc_el){
-                    inc_el = nums[i];
-                    inc_index = i;
-                }
+                swap(nums[i], nums[pivot]);
+                break;
             }
         }
-        //numbers have been swapped, now num_index contains the correct number, just need to reverse the suffix
-        swap(nums[inc_index], nums[pivot]);
+        //numbers have been swapped, now pivot contains the correct number, just need to reverse the suffix
         reverse(nums.begin() + pivot + 1, nums.end());
     }
 };
