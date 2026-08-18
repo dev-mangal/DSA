@@ -18,6 +18,7 @@ public:
     }
 
     //approach: transpose and reverse the rows
+    //in-place, O(n2), O(1)
     void rotate(vector<vector<int>> &matrix){
         int rows = matrix.size();
         int cols = matrix[0].size();
