@@ -2,6 +2,7 @@
 using namespace std;
 
 //given numRows, generate the first numRows of pascal's triangle, where each element is the sum of the two directly above it
+//O(n2) O(n2)
 class Solution{
 public:
     vector<vector<int>> generate(int numRows){
