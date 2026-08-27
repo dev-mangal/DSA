@@ -46,17 +46,15 @@ public:
         while(low <= high){
             //k becomes mid here
             int mid = (low + high) / 2;
-            int count = 0;
+            long long count = 0;
             for(int i = 0; i < piles.size(); i++){
                 //check int overflow
                 if(count > h) break;
-                if(piles[i] <= mid){
-                    count++;
-                    continue;
-                }
-                else{
-                    count += piles[i] % mid == 0 ? piles[i] / mid : piles[i] / mid + 1;
-                }
+                //this works for both cases if mid > count or <= count
+                //count += piles[i] % mid == 0 ? piles[i] / mid : piles[i] / mid + 1;
+
+                //better formula is this : ceiling division
+                count += (piles[i] + mid - 1) / mid;
             }
             if(count > h) low = mid + 1;
             //mid is potential answer, but there could be a lesser value than mid
