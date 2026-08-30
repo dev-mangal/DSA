@@ -4,7 +4,7 @@ using namespace std;
 //bloomDay[], ith flower blooms on bloomDay[i], m bouquets using k adjacent flowers, return min number of days to wait
 class Solution{
 public:
-    //O(n log (max(bloomDay))) O(1)
+    //O(n log (max(bloomDay) - min(bloomDay))) O(1)
     int minDays(vector<int> &bloomDay, int m, int k){
         //{1,10,3,10,2}, 3, 1
         int low = INT_MAX;
