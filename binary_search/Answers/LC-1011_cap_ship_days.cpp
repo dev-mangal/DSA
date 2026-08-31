@@ -6,7 +6,7 @@ class Solution{
 public:
     //O(n log(sum(weights) - max(weights)))
     int shipWithinDays(vector<int> &weights, int days){
-        //{1,2,3,4,5,6,7,8,9,10} days = 5, capacity would be 15 since {1,2,3,4,5}, {6,7}, {8}, {9}, {10}\
+        //{1,2,3,4,5,6,7,8,9,10} days = 5, capacity would be 15 since {1,2,3,4,5}, {6,7}, {8}, {9}, {10}
         //min capacity would be the max of the weights, and max would be sum of all weights
         int low = *max_element(weights.begin(), weights.end());
         int high = accumulate(weights.begin(), weights.end(), 0); //initial value 0, and then sum all from beginning to end
