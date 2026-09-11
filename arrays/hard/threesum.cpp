@@ -24,6 +24,7 @@ public:
     }
 
     //we use same approach as brute, but instead of using 3rd loop, we use twosum approach, insert elements using set and then check whether required number inside the set
+    //O(n2 * log(uniqe triplets)),O(2 * unique triplets + n)
     vector<vector<int>> better(vector<int> &nums){
         set<vector<int>> st;
         vector<vector<int>> result;
@@ -43,7 +44,7 @@ public:
         return result;
     }
 
-    //O(n2 + nlogn)
+    //O(n2 + nlogn), O(1) (excluding space taken to store result)
     //we have 2 loops, outer loop to iterate thru elements, then inner loop uses 2 sum to check if target is met
     vector<vector<int>> threeSum(vector<int> &nums){
         int target = 0;
