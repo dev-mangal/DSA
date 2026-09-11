@@ -5,7 +5,7 @@ using namespace std;
 class Solution {
 public:
     //returns the values themselves
-    //can also do using sort and two pointer approach, calculate the sum and if sum > target then reduce the right pointer, if sum < target then increase the left pointer till sum is found and left < right
+    //can also do using sort and two pointer approach, calculate the sum and if sum > target then reduce the right pointer, if sum < target then increase the left pointer till sum is found and left < right (O(nlogn), O(1))
     vector<int> twoSum2(vector<int>& nums, int target) {
         //this map stores the frequency of the value, not the index
         unordered_map<int, int> mp;
@@ -17,6 +17,8 @@ public:
         }
         return {-1,-1};
     }
+
+    //O(n),O(n)
     vector<int> twoSum(vector<int>& nums, int target){
         unordered_map<int, int> mp;
         for(int i = 0; i < nums.size(); i++){
