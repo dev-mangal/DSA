@@ -3,6 +3,7 @@ using namespace std;
 
 class Solution{
 public:
+    //O(N * log(sum(arr) - max(arr) + 1)), O(1)
     int bookAllocate(vector<int> &arr, int  m){
         long long low = *max_element(arr.begin(), arr.end());
         long long high = accumulate(arr.begin(), arr.end(), 0LL);
