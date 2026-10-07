@@ -28,7 +28,9 @@ public:
         return prefix;
     }
 
+    //O(m * n) where n = number of strings and m = length of shortest string
     string longestCommonPrefix(vector<string> &strs){
+        if(strs.empty()) return "";
         //find the shortest string and take as prefix
         string prefix = strs[0];
         for(auto it : strs){
